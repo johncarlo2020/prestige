@@ -50,11 +50,53 @@ body{
     text-align: center;
     width: -moz-fit-content;
     width: fit-content;
-    height: 20px;
+    height: auto;
+    min-height: 20px;
     background-color: #20282e;
     padding: 10px 20px;
     margin: 0 auto 10px;
     border-radius: 6px;
+}
+
+.difficulty-selection {
+    margin: 20px 0;
+}
+
+.difficulty-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.difficulty-option {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.difficulty-option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.difficulty-option input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #028000;
+}
+
+.difficulty-option input[type="radio"]:checked + span {
+    color: #028000;
+    font-weight: 600;
+}
+
+.difficulty-option span {
+    color: #fff;
+    font-size: 14px;
 }
 .option.grid input,
 .option.speed input{

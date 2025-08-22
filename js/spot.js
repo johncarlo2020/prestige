@@ -14,22 +14,23 @@ const spotSndStart = new Audio('audio/intro_bgm.mp3');
 const spotSndEnd = new Audio('audio/phase_completion_bgm.mp3');
 
 const spotSettings = {
-    spotGridSize: 5,
+    spotGridSize: 10,
     charSet: charSets.braille,
     currentSpot: null,
     targetChar: null,
-    timer: 5000,
+    timer: 10000, // 10 second timer
     required: 10,
     currentScore: 0,
 }
 
-let spotGridSize = 5;
+let spotGridSize = 10;
 let spotInterval;
 let currentSpotTarget;
 let preventClick = false;
 
 
 function createSpotGrid(gridSize) {
+    console.log("Creating spot grid with size:", gridSize);
     let squares = gridSize * gridSize;
     let addSquare = "";
     $("#spot-grid").empty();
@@ -39,11 +40,17 @@ function createSpotGrid(gridSize) {
     }
 
     $("#spot-grid").append(addSquare);
-    $("#spot-grid").css({
-        "display": "grid",
-        "grid-template-columns": `repeat(${gridSize}, 1fr)`,
-        "grid-template-rows": `repeat(${gridSize}, 1fr)`
-    });
+    
+    // Force the grid layout to match path game container but with 10x10 grid
+    const gridElement = document.getElementById('spot-grid');
+    gridElement.style.setProperty('display', 'grid', 'important');
+    gridElement.style.setProperty('grid-template-columns', `repeat(${gridSize}, 1fr)`, 'important');
+    gridElement.style.setProperty('grid-template-rows', `repeat(${gridSize}, 1fr)`, 'important');
+    gridElement.style.setProperty('gap', '0.5vmin', 'important');
+    gridElement.style.setProperty('width', '60vmin', 'important');
+    gridElement.style.setProperty('height', '60vmin', 'important');
+    gridElement.style.setProperty('background-color', 'var(--background-1)', 'important');
+    gridElement.style.setProperty('padding', '1vh', 'important');
 }
     
 function updateSpotSquares() {
@@ -78,11 +85,10 @@ function startSpotGame(settings) {
     activeGame = "spot";
     spotSndStart.currentTime = 0;
     spotSndStart.play();
-    settings.gridSize > 10 ? 10 : settings.gridSize;
 
     spotSettings.spotGridSize = settings.gridSize;
     spotSettings.charSet = charSets[settings.charSet];
-    spotSettings.timer = settings.timeLimit;
+    spotSettings.timer = settings.timeLimit; // Re-enabled timer
     spotSettings.required = settings.required;
 
     createSpotGrid(settings.gridSize);

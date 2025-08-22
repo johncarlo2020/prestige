@@ -43,12 +43,21 @@
             <div class="speed_value">6s</div>
         </div>
         <div class="option grid">
-            <label for="grid">Grid:</label>
-            <input id="grid" type="range" value="6" min="4" max="10" autocomplete="off">
-            <div class="grid_value">6x6</div>
-            <div class="grid_choices">
-                <button type="button" onclick="document.getElementById('grid').value=4;document.querySelector('.grid_value').innerHTML='4x4';document.querySelector('#grid').dispatchEvent(new Event('input'))">4x4</button>
+            <label for="grid">Select Difficulty:</label>
+            <div class="difficulty-selection">
+                <div class="difficulty-options">
+                    <label class="difficulty-option">
+                        <input type="radio" name="simon-difficulty" value="4" checked>
+                        <span>Easy (4x4)</span>
+                    </label>
+                    <label class="difficulty-option">
+                        <input type="radio" name="simon-difficulty" value="6">
+                        <span>Hard (6x6)</span>
+                    </label>
+                </div>
             </div>
+            <input id="grid" type="hidden" value="4">
+            <div class="grid_value" style="display: none;">4x4</div>
         </div>
     </div>
     <div class="minigame">

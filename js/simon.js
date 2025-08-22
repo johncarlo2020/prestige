@@ -54,10 +54,16 @@ document.querySelector('#speed').addEventListener('input', function (ev) {
     speed = parseFloat(ev.target.value) * 1000; // Convert to milliseconds
     resetToIntro(); // Reset to intro screen and restart game
 });
-document.querySelector('#grid').addEventListener('input', function (ev) {
-    document.querySelector('.grid_value').innerHTML = ev.target.value + 'x' + ev.target.value;
-    mode = ev.target.value;
-    resetToIntro(); // Reset to intro screen and restart game
+
+// Difficulty selection with radio buttons
+document.querySelectorAll('input[name="simon-difficulty"]').forEach(radio => {
+    radio.addEventListener('change', function(ev) {
+        const selectedValue = ev.target.value;
+        document.querySelector('#grid').value = selectedValue;
+        document.querySelector('.grid_value').innerHTML = selectedValue + 'x' + selectedValue;
+        mode = parseInt(selectedValue);
+        resetToIntro(); // Reset to intro screen and restart game
+    });
 });
 
 document.querySelector('.btn_again').addEventListener('click', function () {
@@ -248,6 +254,12 @@ function start() {
     // Play start sound
     simonSndStart.currentTime = 0;
     simonSndStart.play();
+    
+    // Stop intro audio when it naturally ends
+    simonSndStart.addEventListener('ended', function() {
+        simonSndStart.pause();
+        simonSndStart.currentTime = 0;
+    }, { once: true });
 
     showPhaseSequence();
 }

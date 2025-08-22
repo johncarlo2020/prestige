@@ -340,6 +340,20 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-between;
     z-index: 1000;
     font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsive padding for smaller screens */
+@media (max-width: 768px) {
+    .game-header {
+        padding: 1rem;
+    }
+    
+    .back-btn {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 .game-header-left {
@@ -363,6 +377,9 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all 0.3s ease;
     text-decoration: none;
     font-family: inherit;
+    margin-right: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .back-btn:hover {

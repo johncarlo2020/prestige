@@ -31,7 +31,7 @@ const startEndScreens = {
 // Default game settings for web browser
 const defaultSettings = {
     path: {gridSize: 13, lives: 3, timeLimit: 10000},
-    spot: {gridSize: 6, timeLimit: 8000, charSet: "braille", required: 10},
+    spot: {gridSize: 10, timeLimit: 8000000000, charSet: "braille", required: 10},
     math: {timeLimit: 300000}
 }
 
