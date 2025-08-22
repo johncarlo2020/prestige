@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack the elements vertically */
+    height: 100vh;
+    margin: 0;
+}
+
+/* Status and buttons container outside the game */
+#status-container {
+    text-align: center;
+    margin-bottom: 20px; /* Space between the status and game container */
+    position: relative;
+}
+
+/* Back button styling */
+.back-btn {
+    background: #23af57;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1.1em;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.2s, color 0.2s;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+.back-btn:hover {
+    background: #1976d2;
+    color: #fff;
+}
+
+/* Start button styling */
+#start-btn, #play-again-btn {
+    background-color: #009688;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    display: inline-block; /* Make sure it’s inline within the container */
+}
+
+#start-btn:hover, #play-again-btn:hover {
+    background-color: #00796b;
+}
+
+/* Main container with a darker background color */
+.game-container {
+    text-align: center;
+    width: 900px;
+    height: 300px;
+    background-color: rgb(14, 18, 26); /* Dark container color */
+    border-radius: 10px;
+    padding: 50px 60px; /* Adjust padding for a more centered layout */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Hacking box with 4 number boxes inside */
+.hacking-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.number-box {
+    width: 170px;
+    height: 170px;
+    border-radius: 8px; /* Slightly round corners */
+    background-color: rgb(30, 27, 34); /* Dark box color */
+    border: 2px solid #333; /* Light border */
+    text-align: center;
+    line-height: 180px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white; /* Make text inside the boxes visible */
+}
+
+/* Timer bar container */
+.timer-container {
+    width: 100%;
+    height: 8px;
+    background-color: #444;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+/* Timer bar itself */
+.time-bar {
+    height: 8px;
+    width: 100%;
+    background-color: rgb(204, 34, 63);
+    border-radius: 5px;
+}
+
+/* Status text */
+#status {
+    font-size: 22px;
+    margin-bottom: 25px;
+    display: block; /* Make status text appear inside the container */
+}
+
+/* Play Again button styling */
+#play-again-btn {
+    display: none; /* Hidden initially */
+}

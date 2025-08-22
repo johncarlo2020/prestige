@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Mini Game</title>
+    <link rel="stylesheet" href="css/resto.css">
+</head>
+
+<body>
+    <!-- Status and Buttons outside of the game container -->
+    <div id="status-container">
+        <button class="back-btn" onclick="window.location.href='index.html'">&larr; Back to Menu</button>
+        <h1>COSA NEW RESTO PRACTICE</h1>
+        <br>
+        <h2 id="status" style="display: none;">Status: Ready</h2>
+        <button id="start-btn">Start Game</button>
+        <button id="play-again-btn" style="display: none;">Play Again</button>
+    </div>
+
+    <!-- Game container -->
+    <div class="game-container">
+        <!-- Box for entering numbers -->
+        <div id="hacking-box" class="hacking-box">
+            <div id="num1" class="number-box"></div>
+            <div id="num2" class="number-box"></div>
+            <div id="num3" class="number-box"></div>
+            <div id="num4" class="number-box"></div>
+        </div>
+
+        <!-- Timer Bar -->
+        <div class="timer-container">
+            <div id="time-bar" class="time-bar"></div>
+        </div>
+    </div>
+
+    <script src="js/resto.js"></script>
+</body>
+
+</html>

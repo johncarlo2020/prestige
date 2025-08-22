@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>COSA PRACTICE Thermite Minigame</title>
+    <meta name="description" content="Play the NoPixel Power Plant Minigame to test your typing speed and accuracy.">
+    <link rel="canonical" href="https://loydie16.github.io/Prestige2.0-ThermiteMinigame/" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.4">
+    <link rel="icon" type="image/png" href="favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/solid.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/thermite.css">
+    <script defer src="js/thermite.js"></script>
+    <script> // Microsoft Bing
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/9twm8m8r4i?ref=bwt";
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "9twm8m8r4i");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52394643-1"></script>
+    <script> // Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-52394643-1');
+    </script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core@1.2.1/dist/mo.umd.min.js"></script>
+
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Menu</button>
+    
+    <div class="streaks">
+        STREAK: <span class="streak">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME: <span class="time">0.000</span>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hayes lang SAKALAM <span
+            class="max_streak"></span><span class="best_time"></span>
+    </div>
+    <div class="options settings">
+        <div class="option setting">
+            <label><input name="difficulty" value="easy" type="radio">Easy</label>
+        </div>
+        <div class="option setting">
+            <label><input name="difficulty" value="medium" type="radio">Medium</label>
+        </div>
+        <div class="option setting">
+            <label><input name="difficulty" value="hard" type="radio" checked="checked">Hard</label>
+        </div>
+        <div class="option setting">
+            <label><input name="difficulty" value="insane" type="radio" checked="checked">Insane</label>
+        </div>
+        <div class="option setting">
+            <label><input name="difficulty" value="god" type="radio" checked="checked">PRO</label>
+        </div>
+    </div>
+    <div class="minigame">
+        <div class="splash">
+            <div class="fa hacker">&#xf11c;</div><span class="text">Pattern recognition required... Ready...</span>
+        </div>
+        <div class="hack hidden">
+            <div class="bar"></div>
+            <div class="letters"></div>
+        </div>
+        <div class="splash1">
+            <div class="hacker1"></div>
+            <h1>FAILED</h1>
+        </div>
+        <div class="splash2">
+            <div class="hacker1"></div>
+            <h4>Click the "AGAIN!" button below to retry.</h4>
+        </div>
+    </div>
+    <div class="restart"><button class="btn_again">AGAIN!</button></div>
+
+</body>
+
+</html>

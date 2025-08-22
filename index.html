@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COSA Minigames</title>
+    <title>Prestige</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="game-selector" style="display: block;">
-        <h1>COSA Minigames</h1>
+        <h1>Prestige</h1>
         <div class="game-buttons">
-            <button class="game-btn" onclick="startGameFromButton('path')">
-                <i class="fa-solid fa-laptop-code"></i>
+            <a href="path.html" class="game-btn">
+                <i class="fa-solid fa-route"></i>
                 <span>Path Game</span>
                 <p>Navigate through the maze</p>
-            </button>
-            <button class="game-btn" onclick="startGameFromButton('spot')">
-                <i class="fa-solid fa-file-shield"></i>
+            </a>
+            <a href="spot.html" class="game-btn">
+                <i class="fa-solid fa-search"></i>
                 <span>Spot Game</span>
                 <p>Find the target characters</p>
-            </button>
-            <button class="game-btn" onclick="startGameFromButton('math')">
-                <i class="fa-solid fa-server"></i>
-                <span>Math Game</span>
-                <p>Solve the mathematical puzzle</p>
-            </button>
+            </a>
+            <a href="simon.html" class="game-btn">
+                <i class="fa-solid fa-brain"></i>
+                <span>Simon Says</span>
+                <p>Repeat the sequence</p>
+            </a>
+            <a href="thermite.html" class="game-btn">
+                <i class="fa-solid fa-fire"></i>
+                <span>Thermite</span>
+                <p>Type the correct sequence</p>
+            </a>
+            <a href="Bomb.html" class="game-btn">
+                <i class="fa-solid fa-bomb"></i>
+                <span>Bomb</span>
+                <p>Defuse the bomb by solving equations</p>
+            </a>
+            <a href="mg.html" class="game-btn">
+                <i class="fa-solid fa-gears"></i>
+                <span>Metal Grinder</span>
+                <p>Grind the metal blocks</p>
+            </a>
+            <a href="resto.html" class="game-btn">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Restaurant</span>
+                <p>Serve the customers</p>
+            </a>
         </div>
     </div>
 
@@ -72,7 +92,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/path.js"></script>
     <script src="./js/spot.js"></script>
-    <script src="./js/math.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

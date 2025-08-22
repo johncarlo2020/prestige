@@ -1,3 +1,9 @@
+// Sound effects (reuse simon.js audio files)
+const sndCorrect = new Audio('audio/phase_completion_bgm.mp3');
+const sndError = new Audio('audio/error_bgm.mp3');
+const sndStart = new Audio('audio/intro_bgm.mp3');
+const sndEnd = new Audio('audio/phase_completion_bgm.mp3');
+
 const playerPos = {
     x: 1,
     y: 1,
@@ -56,10 +62,15 @@ const oppositeArrowIcons = {
 }
 
 let currentGridSize, pathLives;
-const maxGridSize = 31
+const maxGridSize = 31;
+
+// Prevent movement until game starts
+let pathGameActive = false;
 
 function startPathGame(settings) {
     activeGame = "path";
+    sndStart.currentTime = 0;
+    sndStart.play();
     if (settings.gridSize > maxGridSize) {
         settings.gridSize = maxGridSize;
     }
@@ -71,17 +82,16 @@ function startPathGame(settings) {
     $("#path-timer-bar-inner").css("width", "100%");
 
     generatePath(settings.gridSize, 3);
-    
+    pathGameActive = false;
     startTimeout = setTimeout(() => {
         if (activeGame == "path") {     
             hideScreen();
             $("#path-container").show();
-            
             // Show path for 5 seconds
             setTimeout(() => {
                 // Hide the path pattern
                 $(".path-square").removeClass("path-square").addClass("path-square-hidden");
-                
+                pathGameActive = true;
                 // Start the timer and game
                 $("#path-timer-bar-inner").animate({
                     width: "0%",
@@ -96,13 +106,54 @@ function startPathGame(settings) {
     }, 4000)
 }
 
+function showPathPopup(message, isSuccess = false) {
+    let popup = document.getElementById('path-popup');
+    if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'path-popup';
+        popup.style.position = 'fixed';
+        popup.style.top = '50%';
+        popup.style.left = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.background = isSuccess ? '#23af57' : '#222';
+        popup.style.color = '#fff';
+        popup.style.padding = '32px 48px';
+        popup.style.borderRadius = '16px';
+        popup.style.boxShadow = '0 4px 24px #0008';
+        popup.style.zIndex = '9999';
+        popup.style.textAlign = 'center';
+        popup.innerHTML = `<div style='font-size:1.5em;margin-bottom:1em;'>${message}</div><button id='path-retry-btn' style='padding:10px 32px;font-size:1em;background:#fff;color:#23af57;border:none;border-radius:8px;cursor:pointer;'>Try Again</button>`;
+        document.body.appendChild(popup);
+        document.getElementById('path-retry-btn').onclick = function() {
+            popup.remove();
+            startPathGame({gridSize: 19, lives: 3, timeLimit: 10000});
+        };
+    } else {
+        popup.querySelector('div').textContent = message;
+        popup.style.background = isSuccess ? '#23af57' : '#222';
+        popup.style.display = 'block';
+    }
+}
+
 function endPathGame(win, reason) {
     if (activeGame != "path") return;
 
-     $("#path-timer-bar-inner").stop();
     if (win) {
+        sndEnd.currentTime = 0;
+        sndEnd.play();
+    } else {
+        sndError.currentTime = 0;
+        sndError.play();
+    }
+
+    $("#path-timer-bar-inner").stop();
+    if (win) {
+        showPathPopup('Congrats!', true);
         displayScreen("path", "success");
     } else {
+        if (reason == "time" || reason == "lives") {
+            showPathPopup('Failed! Try Again');
+        }
         if (reason == "time") {
             displayScreen("path", "failTime");
         } else if(reason == "lives") {
@@ -232,7 +283,7 @@ function generatePath(gridSize, maxMove) {
 
 $(document).keydown(function(e) {
     e = e || window.event;
-    if (activeGame != "path") {return}
+    if (activeGame != "path" || !pathGameActive) {return}
     if (e.keyCode == '38' || e.keyCode == '87') {
         // up arrow & w
         if (playerPos.y != currentGridSize) {

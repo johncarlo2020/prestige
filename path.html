@@ -1,0 +1,48 @@
+    <script>
+    // Minimal globals for standalone path game
+    let activeGame = null;
+    let startTimeout = null;
+    let endTimeout = null;
+    function hideScreen() { $("#screen").hide(); }
+    function endGameCallback(success) {
+        setTimeout(() => {
+            hideScreen();
+            $("#path-container").hide();
+            activeGame = null;
+        }, 2000);
+    }
+    function displayScreen(game, text) {
+        // For standalone, just hide the screen and show the game container
+        $("#screen").hide();
+        $("#path-container").show();
+    }
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Game</title>
+    <link rel="stylesheet" href="css/path.css">
+</head>
+<body>
+    <button onclick="window.location.href='index.html'" class="back-btn">&larr; Back</button>
+    <div id="path-container">
+        <div id="path-game-container">
+            <div id="path-grid"></div>
+            <div id="path-timer-container" class="timer-container">
+                <div id="path-timer-bar-outer" class="timer-outer">
+                    <div id="path-timer-bar-inner" class="timer-inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/path.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        startPathGame({gridSize: 19, lives: 3, timeLimit: 10000});
+    });
+    </script>
+</body>
+</html>

@@ -7,6 +7,12 @@ const charSets = {
     braille: "⡀⡁⡂⡃⡄⡅⡆⡇⡈⡉⡊⡋⡌⡍⡎⡏⡐⡑⡒⡓⡔⡕⡖⡗⡘⡙⡚⡛⡜⡝⡞⡟⡠⡡⡢⡣⡤⡥⡦⡧⡨⡩⡪⡫⡬⡭⡮⡯⡰⡱⡲⡳⡴⡵⡶⡷⡸⡹⡺⡻⡼⡽⡾⡿⢀⢁⢂⢃⢄⢅⢆⢇⢈⢉⢊⢋⢌⢍⢎⢏⢐⢑⢒⢓⢔⢕⢖⢗⢘⢙⢚⢛⢜⢝⢞⢟⢠⢡⢢⢣⢤⢥⢦⢧⢨⢩⢪⢫⢬⢭⢮⢯⢰⢱⢲⢳⢴⢵⢶⢷⢸⢹⢺⢻⢼⢽⢾⢿⣀⣁⣂⣃⣄⣅⣆⣇⣈⣉⣊⣋⣌⣍⣎⣏⣐⣑⣒⣓⣔⣕⣖⣗⣘⣙⣚⣛⣜⣝⣞⣟⣠⣡⣢⣣⣤⣥⣦⣧⣨⣩⣪⣫⣬⣭⣮⣯⣰⣱⣲⣳⣴⣵⣶⣷⣸⣹⣺⣻⣼⣽⣾⣿",
 }
 
+// Sound effects (reuse simon.js audio files)
+const sndCorrect = new Audio('audio/phase_completion_bgm.mp3');
+const sndError = new Audio('audio/error_bgm.mp3');
+const sndStart = new Audio('audio/intro_bgm.mp3');
+const sndEnd = new Audio('audio/phase_completion_bgm.mp3');
+
 const spotSettings = {
     spotGridSize: 5,
     charSet: charSets.braille,
@@ -26,20 +32,18 @@ let preventClick = false;
 function createSpotGrid(gridSize) {
     let squares = gridSize * gridSize;
     let addSquare = "";
-    let gridTemplate = "";
-    
     $("#spot-grid").empty();
 
     for (let i = 0; i < squares; i++) {
         addSquare += `<div class="spot-grid-square" data-spot="${i}"><div class="spot-square-text">?</div></div>`
-
-        if (i % gridSize == 0) {
-            gridTemplate += `1fr `;
-        }
     }
-   
+
     $("#spot-grid").append(addSquare);
-    $("#spot-grid").css({"grid-template-columns": gridTemplate, "grid-template-rows": gridTemplate});
+    $("#spot-grid").css({
+        "display": "grid",
+        "grid-template-columns": `repeat(${gridSize}, 1fr)`,
+        "grid-template-rows": `repeat(${gridSize}, 1fr)`
+    });
 }
     
 function updateSpotSquares() {
@@ -59,6 +63,7 @@ function updateSpotSquares() {
 }
 
 function resetSpotTimer() {
+    $("#spot-timer-bar-inner").css("width", "100%");
     $("#spot-timer-bar-inner").animate({
         width: "0%",
     }, {
@@ -71,6 +76,8 @@ function resetSpotTimer() {
 
 function startSpotGame(settings) {
     activeGame = "spot";
+    sndStart.currentTime = 0;
+    sndStart.play();
     settings.gridSize > 10 ? 10 : settings.gridSize;
 
     spotSettings.spotGridSize = settings.gridSize;
@@ -121,16 +128,21 @@ function endSpotGame(win) {
     $("#spot-grid").hide();
     $("#spot-timer-container").hide();
     $("#spot-target").hide();
+    
     if (win) {
-        displayScreen("spot", "success");
+        sndCorrect.currentTime = 0;
+        sndCorrect.play();
+        alert("🎉 SUCCESS! Well done! You found all the targets!");
     } else {
-        displayScreen("spot", "failTime");
+        sndError.currentTime = 0;
+        sndError.play();
+        alert("❌ TIME'S UP! Better luck next time!");
     }
 
-    endTimeout = setTimeout(() => {
-        hideScreen();
-        endGameCallback(win);
-    }, 4000)
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 1000);
+    
     spotSettings.currentScore = 0;
     activeGame = null;
 }
