@@ -1,7 +1,5 @@
 /* Path Game Styles */
 body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; }
-.back-btn { position: absolute; top: 24px; left: 24px; background: #23af57; color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 1.1em; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px #0002; transition: background 0.2s, color 0.2s; z-index: 10; }
-.back-btn:hover { background: #1976d2; color: #fff; }
 #path-container { position: absolute; left: 50%; top: 48.5%; transform: translate(-50%, -50%); }
 #path-game-container { height: 62vmin; width: 62vmin; }
 #path-grid { display: grid; background-color: #0e111a; gap: 0.5vmin; height: 60vmin; width: 60vmin; padding: 1vh; }

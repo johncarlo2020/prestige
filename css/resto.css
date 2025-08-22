@@ -23,30 +23,6 @@ body {
     position: relative;
 }
 
-/* Back button styling */
-.back-btn {
-    background: #23af57;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 22px;
-    font-size: 1.1em;
-    font-family: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 8px #0002;
-    transition: background 0.2s, color 0.2s;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-.back-btn:hover {
-    background: #1976d2;
-    color: #fff;
-}
-
 /* Start button styling */
 #start-btn, #play-again-btn {
     background-color: #009688;

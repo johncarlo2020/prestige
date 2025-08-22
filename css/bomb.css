@@ -20,7 +20,7 @@ body{
 
 .streaks {
     display: block;
-    margin: 40px auto;
+    margin: 140px auto 40px auto;
     text-align: center;
     font-size: 30px;
     font-weight: bold;

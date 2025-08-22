@@ -3,21 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>COSA PRACTICE Thermite Minigame</title>
-    <meta name="description" content="Play the NoPixel Power Plant Minigame to test your typing speed and accuracy.">
-    <link rel="canonical" href="https://loydie16.github.io/Prestige2.0-ThermiteMinigame/" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.4">
-    <link rel="icon" type="image/png" href="favicon.ico" sizes="32x32" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/solid.css" crossorigin="anonymous">
+    <title>Thermite Game - Prestige</title>
+    <meta name="description" content="Test your typing speed and accuracy with the thermite sequence game.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/thermite.css">
     <script defer src="js/thermite.js"></script>
-    <script> // Microsoft Bing
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/9twm8m8r4i?ref=bwt";
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "9twm8m8r4i");
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52394643-1"></script>
     <script> // Google Analytics
         window.dataLayer = window.dataLayer || [];
@@ -30,7 +22,15 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@mojs/core@1.2.1/dist/mo.umd.min.js"></script>
 
-    <button class="back-btn" onclick="window.location.href='index.html'">Back to Menu</button>
+    <div class="game-header">
+        <div class="game-header-left">
+            <h1 class="game-title"><i class="fa-solid fa-fire"></i> Thermite Game</h1>
+            <p class="game-description">Type the correct sequence as fast as possible</p>
+        </div>
+        <button onclick="window.location.href='index.html'" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Menu
+        </button>
+    </div>
     
     <div class="streaks">
         STREAK: <span class="streak">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME: <span class="time">0.000</span>

@@ -21,8 +21,6 @@ body {
 }
 /* Spot Game Styles */
 body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; }
-.back-btn { background: #23af57; color: #fff; border: none; border-radius: 8px; padding: 10px 22px; font-size: 1.1em; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px #0002; transition: background 0.2s, color 0.2s; margin-bottom: 32px; display: block; margin-left: auto; margin-right: auto; }
-.back-btn:hover { background: #1976d2; color: #fff; }
 #spot-container { font-family: 'Roboto', sans-serif; text-transform: uppercase; }
 #spot-target { background-color: #0e111bcc; border: 2px solid white; color: white; font-size: 10vh; font-weight: 600; text-align: center; margin: auto; margin-bottom: 5vh; width: 10vh; height: 10vh; display: flex; align-items: center; justify-content: center; }
 .spot-grid-square  { display: flex; align-items: center; justify-content: center; background-color: rgb(25, 25, 25); color: white; font-size: 4vh; min-width: 8vh; min-height: 8vh; width: 8vh; height: 8vh; }

@@ -4,14 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacking Mini Game</title>
+    <title>Restaurant Game - Prestige</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/resto.css">
 </head>
 
 <body>
+    <div class="game-header">
+        <div class="game-header-left">
+            <h1 class="game-title"><i class="fa-solid fa-utensils"></i> Restaurant Game</h1>
+            <p class="game-description">Crack the code to serve the customers</p>
+        </div>
+        <button onclick="window.location.href='index.html'" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Menu
+        </button>
+    </div>
+
     <!-- Status and Buttons outside of the game container -->
     <div id="status-container">
-        <button class="back-btn" onclick="window.location.href='index.html'">&larr; Back to Menu</button>
         <h1>COSA NEW RESTO PRACTICE</h1>
         <br>
         <h2 id="status" style="display: none;">Status: Ready</h2>

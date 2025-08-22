@@ -3,29 +3,6 @@ body{
     font-family: sans-serif;
 }
 
-.back-btn { 
-    background: #23af57; 
-    color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    padding: 10px 22px; 
-    font-size: 1.1em; 
-    font-family: inherit; 
-    font-weight: 600; 
-    cursor: pointer; 
-    box-shadow: 0 2px 8px #0002; 
-    transition: background 0.2s, color 0.2s; 
-    margin: 20px; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-.back-btn:hover { 
-    background: #1976d2; 
-    color: #fff; 
-}
-
 .title{
     text-align: center;
     color: white;
@@ -41,7 +18,7 @@ body{
 
 .streaks {
     display: block;
-    margin: 40px auto;
+    margin: 140px auto 40px auto;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
