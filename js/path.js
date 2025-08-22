@@ -126,7 +126,7 @@ function showPathPopup(message, isSuccess = false) {
         document.body.appendChild(popup);
         document.getElementById('path-retry-btn').onclick = function() {
             popup.remove();
-            startPathGame({gridSize: 19, lives: 3, timeLimit: 10000});
+            startPathGame({gridSize: 13, lives: 3, timeLimit: 10000});
         };
     } else {
         popup.querySelector('div').textContent = message;
