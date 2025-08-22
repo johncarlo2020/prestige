@@ -8,10 +8,10 @@ const charSets = {
 }
 
 // Sound effects (reuse simon.js audio files)
-const sndCorrect = new Audio('audio/phase_completion_bgm.mp3');
-const sndError = new Audio('audio/error_bgm.mp3');
-const sndStart = new Audio('audio/intro_bgm.mp3');
-const sndEnd = new Audio('audio/phase_completion_bgm.mp3');
+const spotSndCorrect = new Audio('audio/phase_completion_bgm.mp3');
+const spotSndError = new Audio('audio/error_bgm.mp3');
+const spotSndStart = new Audio('audio/intro_bgm.mp3');
+const spotSndEnd = new Audio('audio/phase_completion_bgm.mp3');
 
 const spotSettings = {
     spotGridSize: 5,
@@ -76,8 +76,8 @@ function resetSpotTimer() {
 
 function startSpotGame(settings) {
     activeGame = "spot";
-    sndStart.currentTime = 0;
-    sndStart.play();
+    spotSndStart.currentTime = 0;
+    spotSndStart.play();
     settings.gridSize > 10 ? 10 : settings.gridSize;
 
     spotSettings.spotGridSize = settings.gridSize;
@@ -130,12 +130,12 @@ function endSpotGame(win) {
     $("#spot-target").hide();
     
     if (win) {
-        sndCorrect.currentTime = 0;
-        sndCorrect.play();
+        spotSndCorrect.currentTime = 0;
+        spotSndCorrect.play();
         alert("🎉 SUCCESS! Well done! You found all the targets!");
     } else {
-        sndError.currentTime = 0;
-        sndError.play();
+        spotSndError.currentTime = 0;
+        spotSndError.play();
         alert("❌ TIME'S UP! Better luck next time!");
     }
 

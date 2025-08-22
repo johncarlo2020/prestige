@@ -6,8 +6,8 @@ let best_time = 0;
 let errorPlayed = false;
 
 // Sound effects
-const sndIntro = new Audio('audio/intro_bgm.mp3');
-const sndError = new Audio('audio/error_bgm.mp3');
+const thermiteSndIntro = new Audio('audio/intro_bgm.mp3');
+const thermiteSndError = new Audio('audio/error_bgm.mp3');
 
 const sleep = (ms, fn) => {return setTimeout(fn, ms)};
 
@@ -101,8 +101,8 @@ document.addEventListener("keydown", function(ev) {
             stopTimer();
             // Play error BGM only once
             if (!errorPlayed) {
-                sndError.currentTime = 0;
-                sndError.play();
+                thermiteSndError.currentTime = 0;
+                thermiteSndError.play();
                 errorPlayed = true;
             }
             document.querySelector('.minigame .splash1').classList.remove('hidden');
@@ -167,8 +167,8 @@ let createLetter = () => {
                 stopTimer();
                 // Play error BGM only once
                 if (!errorPlayed) {
-                    sndError.currentTime = 0;
-                    sndError.play();
+                    thermiteSndError.currentTime = 0;
+                    thermiteSndError.play();
                     errorPlayed = true;
                 }
                 document.querySelector('.minigame .splash1').classList.remove('hidden');
@@ -216,8 +216,8 @@ function start(){
 
     // Reset error played flag and play intro BGM
     errorPlayed = false;
-    sndIntro.currentTime = 0;
-    sndIntro.play();
+    thermiteSndIntro.currentTime = 0;
+    thermiteSndIntro.play();
 
     timer_start = sleep(3000, function(){
         document.querySelector('.minigame .splash').classList.add('hidden');

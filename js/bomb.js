@@ -6,8 +6,8 @@ let best_time = 0;
 let errorPlayed = false;
 
 // Sound effects
-const sndIntro = new Audio('audio/intro_bgm.mp3');
-const sndError = new Audio('audio/error_bgm.mp3');
+const bombSndIntro = new Audio('audio/intro_bgm.mp3');
+const bombSndError = new Audio('audio/error_bgm.mp3');
 
 const sleep = (ms, fn) => {return setTimeout(fn, ms)};
 
@@ -207,8 +207,8 @@ let createEquation = () => {
             stopTimer();
             // Play error BGM only once
             if (!errorPlayed) {
-                sndError.currentTime = 0;
-                sndError.play();
+                bombSndError.currentTime = 0;
+                bombSndError.play();
                 errorPlayed = true;
             }
             document.querySelector('.minigame .splash1').classList.remove('hidden');
@@ -255,8 +255,8 @@ function start(){
 
     // Reset error played flag and play intro BGM
     errorPlayed = false;
-    sndIntro.currentTime = 0;
-    sndIntro.play();
+    bombSndIntro.currentTime = 0;
+    bombSndIntro.play();
 
     timer_start = sleep(3000, function(){
         document.querySelector('.minigame .splash').classList.add('hidden');

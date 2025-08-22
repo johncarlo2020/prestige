@@ -1,10 +1,10 @@
 let timer_start, timer_game, timer_finish, timer_time, good_positions, wrong, right, speed, timerStart, positions, timerFill;
 
 // Sound effects
-const sndCorrect = new Audio('audio/phase_completion_bgm.mp3');
-const sndError = new Audio('audio/error_bgm.mp3');
-const sndStart = new Audio('audio/intro_bgm.mp3');
-const sndEnd = new Audio('audio/phase_completion_bgm.mp3');
+const simonSndCorrect = new Audio('audio/phase_completion_bgm.mp3');
+const simonSndError = new Audio('audio/error_bgm.mp3');
+const simonSndStart = new Audio('audio/intro_bgm.mp3');
+const simonSndEnd = new Audio('audio/phase_completion_bgm.mp3');
 let game_started = false;
 let streak = 0;
 let max_streak = 0;
@@ -78,8 +78,8 @@ function listener(ev) {
 
     if (good_positions[player_sequence.length - 1] !== position) {
         triggerError(); // Call the error function
-        sndError.currentTime = 0;
-        sndError.play();
+        simonSndError.currentTime = 0;
+        simonSndError.play();
     } else {
         highlightTile(ev.target);
 
@@ -91,12 +91,12 @@ function listener(ev) {
             stopTimer(); // Stop all timers immediately on success
             if (current_phase < good_positions.length) {
                 showPhaseSequence();
-                sndCorrect.currentTime = 0;
-                sndCorrect.play();
+                simonSndCorrect.currentTime = 0;
+                simonSndCorrect.play();
             } else {
                 check();
-                sndEnd.currentTime = 0;
-                sndEnd.play();
+                simonSndEnd.currentTime = 0;
+                simonSndEnd.play();
             }
         }
     }
@@ -246,8 +246,8 @@ function start() {
     document.querySelector('.timer-bar-container').classList.remove('hidden');
 
     // Play start sound
-    sndStart.currentTime = 0;
-    sndStart.play();
+    simonSndStart.currentTime = 0;
+    simonSndStart.play();
 
     showPhaseSequence();
 }

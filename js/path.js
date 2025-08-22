@@ -1,8 +1,8 @@
 // Sound effects (reuse simon.js audio files)
-const sndCorrect = new Audio('audio/phase_completion_bgm.mp3');
-const sndError = new Audio('audio/error_bgm.mp3');
-const sndStart = new Audio('audio/intro_bgm.mp3');
-const sndEnd = new Audio('audio/phase_completion_bgm.mp3');
+const pathSndCorrect = new Audio('audio/phase_completion_bgm.mp3');
+const pathSndError = new Audio('audio/error_bgm.mp3');
+const pathSndStart = new Audio('audio/intro_bgm.mp3');
+const pathSndEnd = new Audio('audio/phase_completion_bgm.mp3');
 
 const playerPos = {
     x: 1,
@@ -69,8 +69,8 @@ let pathGameActive = false;
 
 function startPathGame(settings) {
     activeGame = "path";
-    sndStart.currentTime = 0;
-    sndStart.play();
+    pathSndStart.currentTime = 0;
+    pathSndStart.play();
     if (settings.gridSize > maxGridSize) {
         settings.gridSize = maxGridSize;
     }
@@ -139,11 +139,11 @@ function endPathGame(win, reason) {
     if (activeGame != "path") return;
 
     if (win) {
-        sndEnd.currentTime = 0;
-        sndEnd.play();
+        pathSndEnd.currentTime = 0;
+        pathSndEnd.play();
     } else {
-        sndError.currentTime = 0;
-        sndError.play();
+        pathSndError.currentTime = 0;
+        pathSndError.play();
     }
 
     $("#path-timer-bar-inner").stop();
