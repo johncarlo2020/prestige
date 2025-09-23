@@ -10,7 +10,7 @@ let streak = 0;
 let max_streak = 0;
 let best_time = 99.999;
 
-let mode = 6;
+let mode = 10;
 let mode_data = {};
 mode_data[4] = [6, '130px']; // 4x4 grid: 6 phases, 130px tile size (adjust as needed)
 mode_data[5] = [8, '104px'];
