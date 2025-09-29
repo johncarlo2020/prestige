@@ -1,5 +1,5 @@
 /* Path Game Styles */
-body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; }
+body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padding: 1vmin; /* Responsive padding */ }
 #path-container { position: absolute; left: 50%; top: 48.5%; transform: translate(-50%, -50%); }
 #path-game-container { height: 62vmin; width: 62vmin; }
 #path-grid { display: grid; background-color: #0e111a; gap: 0.5vmin; height: 60vmin; width: 60vmin; padding: 1vh; }
@@ -12,3 +12,18 @@ body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; }
 .timer-container { margin-top: -0.5vh; padding: 1.4vh 2vh 1.7vh; background-color: #0e111a; }
 .timer-outer { height: 0.6vh; width: 100%; background-color: rgb(36, 36, 36); border-radius: 2vh; }
 .timer-inner { height: 0.6vh; width: 100%; background-color: #d71f3e; border-radius: 2vh; }
+
+@media (max-width: 768px) {
+    #path-game-container {
+        height: 70vmin;
+        width: 70vmin;
+    }
+    #path-grid {
+        height: 65vmin;
+        width: 65vmin;
+        gap: 0.4vmin;
+    }
+    .off-path-player {
+        font-size: 1.2vh;
+    }
+}

@@ -1,11 +1,11 @@
 /* Math Game Styles */
-body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; }
-#math-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; background-color: #0e111a; font-family: 'Roboto', sans-serif; font-size: 1.5vh; font-weight: 600; height: 62vmin; width: 62vmin; }
+body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padding: 1vmin; /* Responsive padding */ }
+#math-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; background-color: #0e111a; font-family: 'Roboto', sans-serif; font-size: clamp(1rem, 1.5vh, 1.5rem); /* Responsive font size */ font-weight: 600; height: 62vmin; width: 62vmin; }
 #math-grid { display: grid; grid-template-columns: auto auto auto auto auto auto auto; gap: 1.5vh; margin: auto; margin-top: 8vh; }
 .math-grid-item { display: flex; justify-content: center; align-items: center; border-radius: 0.5vh; height: 4vh; width: 4vh; }
 .math-op { background-color: #ececec; }
 .math-answer { background-color: #23af57; }
-.math-input { background-color: #0e111a; border: 2px solid white; color: white; font-family: 'Roboto', sans-serif; font-size: 1.5vh; text-align: center; padding: 0; }
+.math-input { background-color: #0e111a; border: 2px solid white; color: white; font-family: 'Roboto', sans-serif; font-size: clamp(1rem, 1.5vh, 1.5rem); /* Responsive font size */ text-align: center; padding: 0; }
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 .math-num-input { background-color: transparent; border: none; color: white; }
 #math-buttons { display: flex; color: white; margin: auto; }
@@ -14,3 +14,28 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .timer-container { margin-top: -0.5vh; padding: 1.4vh 2vh 1.7vh; background-color: #0e111a; }
 .timer-outer { height: 0.6vh; width: 100%; background-color: rgb(36, 36, 36); border-radius: 2vh; }
 .timer-inner { height: 0.6vh; width: 100%; background-color: #d71f3e; border-radius: 2vh; }
+
+@media (max-width: 768px) {
+    #math-container {
+        width: 80vmin;
+        height: 80vmin;
+    }
+    #math-grid {
+        gap: 1vh;
+        margin-top: 5vh;
+        grid-template-columns: repeat(auto-fit, minmax(3.5vh, 1fr));
+    }
+    .math-grid-item {
+        height: 3.5vh;
+        width: 3.5vh;
+        font-size: clamp(0.9rem, 1.2vh, 1.2rem);
+    }
+    .math-input {
+        font-size: clamp(0.9rem, 1.2vh, 1.2rem);
+    }
+    .math-button {
+        width: 6vh;
+        padding: 0.4vh;
+        font-size: clamp(0.9rem, 1.2vh, 1.2rem);
+    }
+}

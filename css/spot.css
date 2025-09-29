@@ -4,6 +4,7 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	background: #181a20;
+	padding: 1vmin; /* Responsive padding */
 }
 
 #spot-container {
@@ -28,7 +29,7 @@ body {
 	box-sizing: border-box;
 }
 /* Spot Game Styles */
-body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padding: 0 1rem; box-sizing: border-box; }
+body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padding: 1vmin; box-sizing: border-box; }
 
 .game-header {
     padding: 0 1rem;
@@ -44,7 +45,7 @@ body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padd
 }
 
 #spot-container { font-family: 'Roboto', sans-serif; text-transform: uppercase; }
-#spot-target { background-color: #0e111bcc; border: 2px solid white; color: white; font-size: 5vh; font-weight: 600; text-align: center; margin: auto; margin-bottom: 5vh; width: 10vh; height: 10vh; display: flex; align-items: center; justify-content: center; }
+#spot-target { background-color: #0e111bcc; border: 2px solid white; color: white; font-size: 5vh; font-weight: 600; text-align: center; margin: auto; margin-bottom: 2vh; /* Responsive margin */ width: 10vh; height: 10vh; display: flex; align-items: center; justify-content: center; }
 .spot-grid-square {
     display: flex;
     align-items: center;
@@ -80,4 +81,19 @@ body { background: #181a20; color: #fff; font-family: 'Roboto', sans-serif; padd
     background-color: #d71f3e; 
     border-radius: 2vh; 
     display: block !important; 
+}
+
+@media (max-width: 768px) {
+    #spot-target {
+        font-size: 4vh;
+        width: 8vh;
+        height: 8vh;
+    }
+    .spot-grid-square {
+        font-size: 1.8vh;
+        min-width: 3.5vh;
+        min-height: 4.5vh;
+        width: 4.5vh;
+        height: 4.5vh;
+    }
 }

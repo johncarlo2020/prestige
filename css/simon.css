@@ -18,22 +18,22 @@ body{
 
 .streaks {
     display: block;
-    margin: 140px auto 40px auto;
+    margin: 100px auto 30px auto; /* Responsive margin */
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
     font-weight: bold;
     text-transform: uppercase;
     color: white;
     width: -moz-fit-content;
     width: fit-content;
     background-color: #028000;
-    padding: 12px;
+    padding: 10px 15px; /* Responsive padding */
     border-radius: 18px;
 }
 .best_time,
 .time {
     display: inline-block;
-    width: 100px;
+    width: clamp(80px, 10vw, 100px); /* Responsive width */
 }
 .streaks .fa {
     padding: 0 10px;
@@ -50,10 +50,10 @@ body{
     text-align: center;
     width: -moz-fit-content;
     width: fit-content;
-    height: auto;
+    height: auto; /* Changed to auto for flexibility */
     min-height: 20px;
     background-color: #20282e;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Responsive padding */
     margin: 0 auto 10px;
     border-radius: 6px;
 }
@@ -96,7 +96,7 @@ body{
 
 .difficulty-option span {
     color: #fff;
-    font-size: 14px;
+    font-size: clamp(0.8rem, 1.4vw, 1rem); /* Responsive font size */
 }
 .option.grid input,
 .option.speed input{
@@ -104,44 +104,46 @@ body{
 }
 .speed_value{
     display: inline-block;
-    width: 18px;
+    width: clamp(15px, 2vw, 18px); /* Responsive width */
     text-align: right;
 }
 .grid_value{
     display: inline-block;
-    width: 40px;
+    width: clamp(30px, 4vw, 40px); /* Responsive width */
     text-align: center;
 }
 .minigame{
     margin: 0 auto 20px;
-    width: 540px;
-    min-width: 540px;
+    width: clamp(300px, 80vw, 540px); /* Responsive width */
+    min-width: unset; /* Removed fixed min-width */
     max-width: 540px;
-    height: 555px;
-    min-height: 555px;
+    height: clamp(300px, 80vh, 555px); /* Responsive height */
+    min-height: unset; /* Removed fixed min-height */
     max-height: 555px;
     background-color: #000e1f;
+    padding: 0;
+    position: relative;
 }
 .splash{
     display: inline-block;
     width: 100%;
-    margin: 220px auto;
+    margin: clamp(100px, 20vh, 220px) auto;
     text-align: center;
     color: white;
-    font-size: 16px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 .splash .hacker{
-    font-size: 65px;
-    margin-bottom: 30px;
+    font-size: clamp(3rem, 6vw, 4rem);
+    margin-bottom: clamp(15px, 3vw, 30px);
 }
 .splash .fa-file-shield {
-    font-size: 65px; /* Adjust the size as needed */
-    margin-bottom: 30px; /* Adjust the spacing as needed */
+    font-size: clamp(3rem, 6vw, 4rem); /* Responsive size */
+    margin-bottom: clamp(15px, 3vw, 30px); /* Responsive spacing */
 }
 .large-icon {
-    width: 55px; /* Adjust the width as needed */
+    width: clamp(30px, 6vw, 55px); /* Responsive width */
     height: auto; /* Maintain aspect ratio */
-    margin-bottom: 2px; /* Adjust the spacing as needed */
+    margin-bottom: clamp(1px, 0.5vw, 2px); /* Responsive spacing */
     fill: white; /* Change the color to white */
 }
 .groups{
@@ -149,16 +151,17 @@ body{
     flex-wrap: wrap;
     justify-content: space-evenly;
     user-select: none;
+    gap: 1vmin; /* Responsive gap */
 }
 .group{
-    width: 74px;
-    height: 74px;
+    width: clamp(40px, 12vw, 74px); /* Responsive width */
+    height: clamp(40px, 12vw, 74px); /* Responsive height */
     border: 2px #000e1f solid;
     background-color: #004900;
 }
 .jewelry .group{
-    width: 92px;
-    height: 92px;
+    width: clamp(50px, 15vw, 92px); /* Responsive width */
+    height: clamp(50px, 15vw, 92px); /* Responsive height */
 }
 .proper{
     background-color: #00c000;
@@ -209,16 +212,16 @@ body{
 }
 
 .timer-bar-container {
-    width: 500px; /* Reduced width to create space */
-    margin-left: 15px ; /* Centered with equal space on left and right */
-    margin-right: 15px ;
-    margin-top: 5px ;
+    width: clamp(250px, 80vw, 500px); /* Responsive width */
+    margin-left: auto; /* Centered with auto margins */
+    margin-right: auto;
+    margin-top: clamp(2px, 1vh, 5px); /* Responsive margin-top */
     text-align: center;
 }
 
 .timer-bar {
     width: 100%;
-    height: 3px; /* Adjust height if needed */
+    height: clamp(2px, 0.5vh, 3px); /* Responsive height */
     background-color: #20282e; /* Background color of the timer bar */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden;
@@ -235,4 +238,31 @@ body{
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 768px) {
+    .minigame {
+        width: clamp(280px, 90vw, 540px);
+        height: clamp(280px, 90vh, 555px);
+    }
+    .groups {
+        gap: 5px;
+    }
+    .group {
+        width: clamp(40px, 12vw, 74px);
+        height: clamp(40px, 12vw, 74px);
+    }
+    .jewelry .group {
+        width: clamp(50px, 15vw, 92px);
+        height: clamp(50px, 15vw, 92px);
+    }
+    .splash .hacker {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+    .splash .text {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+    .timer-bar-container {
+        width: clamp(250px, 80vw, 500px);
+    }
 }

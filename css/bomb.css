@@ -20,22 +20,22 @@ body{
 
 .streaks {
     display: block;
-    margin: 140px auto 40px auto;
+    margin: 100px auto 30px auto; /* Responsive margin */
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
     font-weight: bold;
     text-transform: uppercase;
     color: white;
     width: -moz-fit-content;
     width: fit-content;
     background-color: #028000;
-    padding: 12px;
+    padding: 10px 15px; /* Responsive padding */
     border-radius: 18px;
 }
 .best_time,
 .time {
     display: inline-block;
-    width: 100px;
+    width: clamp(80px, 10vw, 100px); /* Responsive width */
 }
 .streaks .fa {
     padding: 0 10px;
@@ -54,19 +54,19 @@ body{
     text-align: center;
     width: -moz-fit-content;
     width: fit-content;
-    height: 20px;
+    height: auto; /* Changed to auto for flexibility */
     background-color: #20282e;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Responsive padding */
     margin: 0 auto 10px;
     border-radius: 6px;
 }
 .option.setting{
     display: inline-flex;
-    height: 32px;
+    height: auto; /* Changed to auto */
     padding: 0;
 }
 .option.setting label{
-    font-size: 12px;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem); /* Responsive font size */
     padding: 6px 10px 6px 6px;
     cursor: pointer;
 }
@@ -89,11 +89,11 @@ body{
 }
 .minigame{
     margin: 0 auto 20px;
-    width: 640px;
-    min-width: 640px;
+    width: clamp(300px, 80vw, 640px); /* Responsive width */
+    min-width: unset; /* Removed fixed min-width */
     max-width: 640px;
-    height: 640px;
-    min-height: 640px;
+    height: clamp(300px, 80vh, 640px); /* Responsive height */
+    min-height: unset; /* Removed fixed min-height */
     max-height: 640px;
     background-color: #232832;
     padding: 0;
@@ -104,8 +104,8 @@ body{
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 16px;
-    margin-top: 240px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive font size */
+    margin-top: clamp(100px, 20vh, 240px); /* Responsive margin-top */
 }
 
 .splash1{
@@ -113,8 +113,8 @@ body{
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 16px;
-    margin-top: 240px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive font size */
+    margin-top: clamp(100px, 20vh, 240px); /* Responsive margin-top */
 }
 
 .splash2{
@@ -122,23 +122,23 @@ body{
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 16px;
-    margin-top: 240px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive font size */
+    margin-top: clamp(100px, 20vh, 240px); /* Responsive margin-top */
 }
 
 .splash .hacker{
-    font-size: 65px;
-    margin-bottom: 30px;
+    font-size: clamp(3rem, 6vw, 4rem); /* Responsive font size */
+    margin-bottom: clamp(15px, 3vw, 30px); /* Responsive margin-bottom */
 }
 
 .splash .hacker1{
-    font-size: 65px;
-    margin-bottom: 30px;
+    font-size: clamp(3rem, 6vw, 4rem); /* Responsive font size */
+    margin-bottom: clamp(15px, 3vw, 30px); /* Responsive margin-bottom */
 }
 .minigame > .hack > .bar {
     width: 100%;
-    height: 64px;
-    margin-top: 64px;
+    height: clamp(30px, 6vh, 64px); /* Responsive height */
+    margin-top: clamp(30px, 6vh, 64px); /* Responsive margin-top */
     display: inline-block;
     position: absolute;
     background-color: #dc3545 !important;
@@ -152,24 +152,28 @@ body{
 .minigame .equation {
     position: absolute;
     color: #ffffff;
-    font-size: 32px;
-    top: 590px;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
+    top: 90%; /* Use percentage for top position */
     font-weight: normal;
     text-shadow: none;
     white-space: nowrap;
     font-family: Arial, sans-serif;
 }
 .equations .equation.pos1 {
-    margin-left: 60px;
+    left: 5%; /* Use percentage for left position */
+    margin-left: 0; /* Remove fixed margin */
 }
 .equations .equation.pos2 {
-    margin-left: 220px;
+    left: 30%; /* Use percentage for left position */
+    margin-left: 0; /* Remove fixed margin */
 }
 .equations .equation.pos3 {
-    margin-left: 387px;
+    left: 55%; /* Use percentage for left position */
+    margin-left: 0; /* Remove fixed margin */
 }
 .equations .equation.pos4 {
-    margin-left: 540px;
+    left: 80%; /* Use percentage for left position */
+    margin-left: 0; /* Remove fixed margin */
 }
 .minigame .mirrored .find > div,
 .minigame .mirrored .codes > div {
@@ -213,4 +217,20 @@ body{
 .credits .wallet{
     font-family: monospace;
     font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .minigame {
+        width: clamp(280px, 90vw, 640px);
+        height: clamp(280px, 90vh, 640px);
+    }
+    .splash .hacker, .splash .hacker1 {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+    .splash .text {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+    .minigame .equation {
+        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    }
 }
