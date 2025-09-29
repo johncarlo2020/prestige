@@ -1,0 +1,63 @@
+body {
+    padding-top: 4rem;
+}
+html{
+			width:100%;height:100%;
+}
+* { 
+padding: 0; 
+			margin: 0; 
+			background-color:black;
+}
+#scene {
+			position: relative;
+			width: 1013px;
+			height: 859px;
+			margin:auto;
+}
+#menu {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			margin:auto;
+			background-color:black;
+			z-index: 7;
+}
+canvas { 
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: transparent;
+}
+#intro
+{
+			transition: all 0.1s linear;
+}
+#layerBackground {
+			z-index: 1 
+}
+#layerBattery {
+			z-index: 2 
+}
+#layerConnections {
+			z-index: 3 
+}
+#layerResult {
+			z-index: 4 
+}
+.fadeOut {
+			display: none;
+			opacity: 0;
+}
+
+.menu-image {
+    margin:auto; display:block; margin-top: 360px;
+}
+
+.ending-image {
+    position:absolute;top:0;bottom:80px;right:0;left:0;margin:auto; z-index:7;
+}
+
+.controls-image {
+    margin-top:850px; margin-left:440px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>VoltLab - Casino</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/voltlab.css">
+	</head>
+	<body>
+		
+		<div class="game-header">
+			<div class="game-header-left">
+				<h1 class="game-title"><i class="fa-solid fa-bolt"></i> VoltLab</h1>
+				<p class="game-description">Solve the electrical puzzles</p>
+			</div>
+			<button onclick="window.location.href='index.html'" class="back-btn">
+				<i class="fa-solid fa-arrow-left"></i> Back to Menu
+			</button>
+		</div>
+		
+		
+		<div id="menu" onClick="start()" >
+			<img src="img/HACKERMANS.png" class="menu-image" />
+		</div>
+		
+		
+		<div id="intro" style="z-index:6; display:none; position:absolute; background-color:#101010; width:100%; height:100%;">
+			<img class="ending-image" src="img/intro.gif"  />
+		</div>
+
+		<div id="badEnding" style="z-index:6; display:none; position:absolute; background-color:#101010; width:100%; height:100%;">
+			<img class="ending-image" src="img/fail.gif"  />
+		</div>
+
+		<div id="goodEnding" style="z-index:6; display:none; position:absolute; background-color:#101010; width:100%; height:100%;">
+			<img class="ending-image" src="img/success.gif"  />
+		</div>
+
+		<div id="scene">
+		  <canvas id="layerBackground" width="1013" height="859"></canvas>
+		  <canvas id="layerBattery" width="1013" height="859"></canvas>
+		  <canvas id="layerConnections" width="1013" height="859"></canvas>
+		  <canvas id="layerResult" width="1013" height="859"></canvas>
+		  <img src="img/controls.png" class="controls-image"/>
+		</div>
+
+	</body>
+	
+	<script type="text/javascript" src="js/voltlab.js"></script>
+
+	<script>
+	var vl = new VoltLab();
+	
+	function start()
+	{
+		loading_sound.play();
+		document.getElementById("menu").style.display="none";
+		document.getElementById("intro").style.display="block";
+		window.setTimeout(function() {
+		document.getElementById("intro").classList.toggle('fadeOut');
+		vl.start();
+	  }, 3200); 
+	}
+	</script>
+</html>
